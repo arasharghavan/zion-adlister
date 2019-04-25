@@ -1,5 +1,6 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.Config;
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
 
@@ -71,4 +72,24 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+
+
+    @Override
+    public List<Ad> search(String input) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads where title LIKE ? or description like ?");
+            stmt.setString(1,"%"+input+"%");
+            stmt.setString(2,"%"+input+"%");
+
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
+    }
+
+
+
 }
