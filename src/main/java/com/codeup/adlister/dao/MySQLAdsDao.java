@@ -90,6 +90,22 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    public void updateprofile(Ad ad){
+        String query = "update ads set title = ?, description = ? where user_id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(3, ad.getUserId());
+            stmt.setString(2, ad.getDescription());
+            stmt.setString(1, ad.getTitle());
+//            stmt.setLong(4, ad.getId());
+            stmt.executeUpdate();
+            stmt.close();
+
+        } catch (SQLException e){
+            throw new RuntimeException("Error creating new user", e);
+        }
+    }
+
 
 
 }

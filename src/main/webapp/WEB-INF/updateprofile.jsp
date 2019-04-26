@@ -13,6 +13,7 @@
     </jsp:include>
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
     <h1>update profile</h1>
     <form action="/updateprofile" method="POST">
@@ -28,7 +29,7 @@
             <label for="email">email</label>
             <input id="email" name="email" class="form-control" type="text" value="${user.email}">
         </div>
-        <input type="submit" class="btn btn-primary btn-block" value="Log In">
+        <input type="submit" class="btn btn-primary btn-block" value="Update">
     </form>
 </div>
 </body>

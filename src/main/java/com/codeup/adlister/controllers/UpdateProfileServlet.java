@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/updateprofile")
+@WebServlet(name = "updateprofile",urlPatterns = "/updateprofile")
 public class UpdateProfileServlet extends HttpServlet {
 
     @Override
@@ -25,21 +25,35 @@ public class UpdateProfileServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
+
+//        Long id = Long.parseUnsignedLong(req.getParameter("id"));
+
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         String email = req.getParameter("email");
 
+        User user = new User(1,username,email,password);
+
+        DaoFactory.getUsersDao().updateprofile(user);
+        resp.sendRedirect("/logout");
+
+
+
+
+
         // validate input
 
-        boolean inputHasErrors = username.isEmpty()
-                || email.isEmpty()
-                || password.isEmpty();
+//        boolean inputHasErrors = username.isEmpty()
+//                || email.isEmpty()
+//                || password.isEmpty();
+//
+//        if (!inputHasErrors){
+//            resp.sendRedirect("/updateprofile");
+//            DaoFactory.getUsersDao().updateprofile(user);
+//
+//        }
 
-        if (!inputHasErrors){
-            resp.sendRedirect("/updateprofile");
-            DaoFactory.getUsersDao().updateprofile();
-
-        }
 //
 
 
