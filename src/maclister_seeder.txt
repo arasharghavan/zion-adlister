@@ -1,0 +1,62 @@
+Arash
+
+
+
+(2002,'Ford150','Insight','Black','Automatic','Unleaded',3800,'Working','V6',170000),
+(2010,'Honda','Insight','Black','Automatic','Unleaded',5800,'Fair','Regular',120000),
+(1970,'Chevy','Insight','Silver','Automatic','Unleaded',30000,'Good','Regular',10000),
+(1930,'Benz','Insight','Wood','N/A','Alcohol',900000,'Salvage','V8',0),
+(2019,'Tesla','Insight','Gold','Automatic','Electric',120000,'New','Others',100),
+
+Mindy
+
+INSERT INTO ads (title, description, user_id)
+VALUES ('Bike For Sale', '10-speed bike in good condition', (SELECT id FROM users WHERE email = 'dwight@codeup.com')),
+-----------------------------------------------------------------------
+
+INSERT INTO users (username, email, password)
+VALUES (
+    ('Mindy', 'mjtillman@gmail.com', 'macaroni'),
+    ('arash', '', ''),
+    ('Carlo', '', '')
+);
+
+INSERT INTO ads (user_id, title, description)
+VALUES (
+    ((SELECT id FROM users WHERE username = 'Mindy'), '2013 VW Beetle', 'Volkswagen Beetle for sale, text only'),
+    ((SELECT id FROM users WHERE username = 'Mindy'), '2015 VW Golf', 'Sustained some damage from meteorites'),
+    ((SELECT id FROM users WHERE username = 'Mindy'), 'Fleetwood Hearse, Cadillac circa 1996', 'Hearse has been completely exorcized of spirits, ghosts, etc'),
+    ((SELECT id FROM users WHERE username = 'Mindy'), 'Slightly Used Ambulance', 'Fully restored after 60 mile police chase'),
+    ((SELECT id FROM users WHERE username = 'Mindy'), 'Work Van for Sale', 'Accident free, never used in shady endeavors')
+);
+
+INSERT INTO categories (ad_id, year, make, model, transmission, color, fuel, price, car_condition, mileage, engine_type)
+VALUES (
+    (2013, 'Volkswagen', 'Beetle',           'manual',    'red',   'diesel',   $12000, 'Like new',      80000),
+    (2015, 'Volkswagen', 'Golf',             'automatic', 'blue',  'unleaded', $13000, 'Used but good', 45000),
+    (1996, 'Cadillac',   'Fleetwood Hearse', 'automatic', 'black', 'unleaded', $6000,  'Worn',          36000),
+    (2005, 'Ford',       'E-450',            'automatic', 'white', 'diesel',   $16000, 'Used',          75000),
+    (1999, 'Ford',       'E-150',            'automatic', 'white', 'unleaded', $1000,  'Poor',          202000)
+);
+
+
+SELECT *
+FROM ads
+WHERE user_id IN (
+    SELECT user_id
+    FROM users
+    WHERE username = 'Mindy'
+);
+
+INSERT INTO categories (ad_id, year, make, model, transmission, color, fuel, price, car_condition, mileage, engine_type)
+VALUES ((SELECT id
+        FROM ads
+        WHERE user_id IN (
+            SELECT user_id
+            FROM users
+            WHERE username = 'Mindy'
+        )), 2013, 'Volkwagen', 'Beetle', 'manual', 'red',  'diesel', 12000, 'Like new', 80000, '4-cylinder');
+
+
+INSERT INTO categories (ad_id, year, make, model, transmission, color, fuel, price, car_condition, mileage, engine_type)
+VALUES (2, 2015, 'Volkwagen', 'Golf', 'automatic', 'blue',  'unleaded', 13000, 'Used but good', 45000, '4-cylinder');
