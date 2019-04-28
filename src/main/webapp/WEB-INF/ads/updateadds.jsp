@@ -13,10 +13,10 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<%--<jsp:include page="/WEB-INF/partials/navbar.jsp" />--%>
 <div class="container">
     <h1>update ads</h1>
-    <form action="ads/updateadds" method="POST">
+    <form action="/ads/updateadds" method="POST">
         <div class="form-group">
             <label for="title">Title</label>
             <input id="title" name="title" class="form-control" type="text" value="${ad.title}">

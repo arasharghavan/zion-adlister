@@ -6,6 +6,7 @@ public class DaoFactory {
     private static Ads adsDao;
     private static Users usersDao;
     private static Config config = new Config();
+    private static Cat catDao;
 
     public static Ads getAdsDao() {
         if (adsDao == null) {
@@ -20,4 +21,11 @@ public class DaoFactory {
         }
         return usersDao;
     }
+
+//    public static Cat getCatsDao(){
+//        if (catDao == null){
+//            catDao = new MySQLCatDao(config);
+//        }
+//        return catDao;
+//    }
 }

@@ -25,37 +25,17 @@ public class UpdateProfileServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        User user =(User) req.getSession().getAttribute("user");
 
+        User updateuser = new User(
+                user.getId(),
+                req.getParameter("username"),
+                req.getParameter("email"),
+                req.getParameter("password")
 
-//        Long id = Long.parseUnsignedLong(req.getParameter("id"));
-
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        String email = req.getParameter("email");
-
-        User user = new User(1,username,email,password);
-
-        DaoFactory.getUsersDao().updateprofile(user);
-        resp.sendRedirect("/logout");
-
-
-
-
-
-        // validate input
-
-//        boolean inputHasErrors = username.isEmpty()
-//                || email.isEmpty()
-//                || password.isEmpty();
-//
-//        if (!inputHasErrors){
-//            resp.sendRedirect("/updateprofile");
-//            DaoFactory.getUsersDao().updateprofile(user);
-//
-//        }
-
-//
-
-
+        );
+        DaoFactory.getUsersDao().updateprofile(updateuser);
+        user.setUsername(updateuser.getUsername());
+        resp.sendRedirect("logout");
     }
 }

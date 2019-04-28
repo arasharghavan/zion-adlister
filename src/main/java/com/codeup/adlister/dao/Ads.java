@@ -11,5 +11,5 @@ public interface Ads {
     Long insert(Ad ad);
 
     List<Ad> search(String input);
-    void updateprofile(Ad ad);
+    void updateAds(Ad ad);
 }

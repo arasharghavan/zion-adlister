@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "update ads",urlPatterns = "/updateads")
+@WebServlet(name = "updateads",urlPatterns = "/ads/updateadds")
 public class UpdateAdServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-         Ad ad = (Ad) req.getSession().getAttribute("ad");
-        req.setAttribute("ad",ad);
-        req.getRequestDispatcher("/WEB-INF/updateadds.jsp").forward(req,resp);
+
+
+         req.getRequestDispatcher("/WEB-INF/ads/updateadds.jsp").forward(req,resp);
 
     }
 
@@ -31,7 +31,7 @@ public class UpdateAdServlet extends HttpServlet {
 
         Ad ad = new Ad(id,title,description);
 
-        DaoFactory.getAdsDao().updateprofile(ad);
+        DaoFactory.getAdsDao().updateAds(ad);
         resp.sendRedirect("/ads");
     }
 }

@@ -25,6 +25,13 @@
             <p>${ad.description}</p>
         </div>
     </c:forEach>
+
+    <%--<c:forEach var="cat" items="${search}">--%>
+        <%--<div class="col-md-6">--%>
+            <%--<h2>${cat.make}</h2>--%>
+            <%--<p>${cat.color}</p>--%>
+        <%--</div>--%>
+    <%--</c:forEach>--%>
 </div>
 
 </body>
