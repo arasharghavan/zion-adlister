@@ -12,4 +12,6 @@ public interface Ads {
 
     List<Ad> search(String input);
     void updateAds(Ad ad);
+    List<Ad> findbyid(int id);
+    void deleteAd(int id);
 }
