@@ -1,5 +1,6 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.Config;
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
 
@@ -68,4 +69,51 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+
+
+    @Override
+    public List<Ad> search(String input) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads where title LIKE ? or description like ?");
+            stmt.setString(1,"%"+input+"%");
+            stmt.setString(2,"%"+input+"%");
+
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
+    }
+
+    public void updateAds(Ad ad){
+        String query = "update ads set title = ?, description = ? where user_id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(3, ad.getUserId());
+            stmt.setString(2, ad.getDescription());
+            stmt.setString(1, ad.getTitle());
+//           stmt.setLong(4, ad.getId());
+//            stmt.executeUpdate();
+            stmt.close();
+
+        } catch (SQLException e){
+            throw new RuntimeException("Error creating new user", e);
+        }
+    }
+
+    public void deleteAd (int id){
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("delete from  ads where id = ?");
+            stmt.setInt(1,id);
+        } catch (SQLException e){
+            throw new RuntimeException("error",e);
+        }
+
+    }
+
+
+
 }
