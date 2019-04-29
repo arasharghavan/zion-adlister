@@ -14,8 +14,8 @@
     </div>
     <div class="container">
         <h1>Here Are all the ads to change!</h1>
-
-        <c:forEach var="ad" items="${ads}">
+<div>
+        <c:forEach var="ad" items="${userlist}">
             <div class="col-md-6">
                 <h2>${ad.title}</h2>
                 <p>${ad.description}</p>
@@ -23,8 +23,9 @@
             <form method="post" action="/delete">
                 <button name="button1" class="deletebtn" type= submit value= ${ad.id}>delete</button>
             </form>
-
         </c:forEach>
+    <hr>
+</div>
     </div>
 
 </body>
