@@ -18,6 +18,7 @@
                 <li><a href="updateprofile">Update Profile</a></li>
                 <li><a href="ads/create">Create ADD</a></li>
                 <li><a href="ads/updateadds">Update Ad</a></li>
+                <li><a href="delete">Delete</a></li>
             </c:if>
 
         </ul>

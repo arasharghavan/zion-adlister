@@ -25,7 +25,7 @@
             <label for="description">Description</label>
             <input id="description" name="description" class="form-control" type="text" value="${ad.description}">
         </div>
-        <input type="submit" class="btn btn-primary btn-block" value="Update">
+        <input type="submit" class="btn btn-primary btn-block" value=" ">
     </form>
 </div>
 </body>
