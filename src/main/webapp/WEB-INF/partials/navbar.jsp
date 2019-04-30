@@ -65,7 +65,7 @@
             </c:if>
             <c:if test="${sessionScope.user != null}">
                 <li><a href="logout">Logout</a></li>
-                <li><a href="../updateprofile">Update Profile</a></li>
+                <li><a href="updateprofile">Update Profile</a></li>
                 <li><a href="create">Create</a></li>
                 <%--<li>Update Ad</li>--%>
                 <%--<li><a href="ads/updateadds">Update Ad</a></li>--%>
