@@ -1,6 +1,6 @@
 package com.codeup.adlister.dao;
 
-import com.codeup.adlister.Config;
+import com.codeup.adlister.dao.Config;
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
 
@@ -103,14 +103,21 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public List<Ad> findbyid(int id) {
+        return null;
+    }
+
     public void deleteAd (int id){
         PreparedStatement stmt = null;
         try {
             stmt = connection.prepareStatement("delete from  ads where id = ?");
             stmt.setInt(1,id);
+            stmt.executeUpdate();
         } catch (SQLException e){
             throw new RuntimeException("error",e);
         }
+
 
     }
 

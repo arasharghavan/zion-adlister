@@ -1,6 +1,6 @@
 //package com.codeup.adlister.dao;
 //
-//        import com.codeup.adlister.Config;
+//        import com.codeup.adlister.dao.Config;
 //        import com.codeup.adlister.models.Ad;
 //        import com.mysql.cj.jdbc.Driver;
 //
@@ -44,7 +44,7 @@
 //        try {
 //            String insertQuery = "INSERT INTO categories(ad_id, year, price, mileage, make, model, transmission, color, fule, carCondition, engineType) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 //            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-//            stmt.setLong(1, Cat.);
+//            stmt.setLong(1, 2);
 //
 //
 //
