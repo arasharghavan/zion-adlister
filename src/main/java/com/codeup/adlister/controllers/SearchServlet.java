@@ -18,7 +18,7 @@ public class SearchServlet extends HttpServlet {
        String search = req.getParameter("search");
        if (search != null){
            req.setAttribute("search", DaoFactory.getAdsDao().search(search));
-           req.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(req,resp);
+           req.getRequestDispatcher("/WEB-INF/search.jsp").forward(req,resp);
 
        } else {
            resp.sendRedirect("/login");
