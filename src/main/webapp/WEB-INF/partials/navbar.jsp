@@ -14,11 +14,11 @@
                 <li><a href="register">Register</a></li>
             </c:if>
             <c:if test="${sessionScope.user != null}">
-                <li><a href="logout">Logout</a></li>
-                <li><a href="updateprofile">Update Profile</a></li>
-                <li><a href="ads/create">Create ADD</a></li>
-                <li><a href="ads/updateadds">Update Ad</a></li>
-                <li><a href="profile">Delete</a></li>
+                <li><a href="../logout">Logout</a></li>
+                <li><a href="../updateprofile">Update Profile</a></li>
+                <li><a href="../ads/create">Create ADD</a></li>
+                <li><a href="../ads/updateadds">Update Ad</a></li>
+                <li><a href="../profile">Delete</a></li>
             </c:if>
 
         </ul>
