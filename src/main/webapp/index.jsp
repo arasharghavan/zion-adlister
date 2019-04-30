@@ -15,8 +15,8 @@
             <h4>Please log in or register to view the current ads</h4>
         </div>
         <div class="card-body text-center" style="padding: 3em 0 2em 0;">
-            <button type="button" class="btn btn-primary btn-lg m-1">Log In</button>
-            <button type="button" class="btn btn-secondary btn-lg">Register</button>
+            <a href="login" class="btn btn-info btn-lg" role="button">Log In</a>
+            <a href="register" class="btn btn-info btn-lg" role="button">Register</a>
         </div>
     </div>
 <jsp:include page="/WEB-INF/partials/foot.jsp" />

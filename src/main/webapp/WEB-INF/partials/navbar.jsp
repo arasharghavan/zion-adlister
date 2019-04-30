@@ -42,15 +42,23 @@
 
 
 
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
+<nav class="navbar">
+    <div class="container-fluid bg-danger">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <%--<img src="car.png" alt="Drive My Car!" />--%>
             <a class="navbar-brand" href="ads">Drive My Car!</a>
         </div>
-
         <ul class="nav navbar-nav navbar-right">
+            <li>
+                <form method="get" action="search">
+                    <input class="form-control mr-sm-2  mt-1" name="search" type="search" placeholder="Search" aria-label="Search">
+                </li>
+            <li>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+                </form>
+            </li>
             <c:if test="${sessionScope.user == null}">
                 <li><a href="login">Login</a></li>
                 <li><a href="register">Register</a></li>
@@ -64,12 +72,5 @@
                 <li><a href="profile">Delete</a></li>
             </c:if>
         </ul>
-
-        <div>
-            <form class="form-inline my-2 my-lg-0" method="get" action="search">
-                <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
     </div><!-- /.navbar-collapse --><!-- /.container-fluid -->
 </nav>
