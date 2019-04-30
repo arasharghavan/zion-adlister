@@ -14,7 +14,7 @@
         <h4>Create New Ad</h4>
     </div>
     <div class="card-body" style="padding: 0 8em 2em 8em;">
-        <form action="/ads/create" method="post">
+        <form action="/create" method="post">
             <div class="form-group">
                 <label for="title">Title</label>
                 <input id="title" name="title" class="form-control" type="text">
