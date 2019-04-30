@@ -11,5 +11,7 @@
     <h1>Error</h1>
     <h2><%=exception.getMessage() %><br/> </h2>
 </center>
+<jsp:include page="/WEB-INF/partials/foot.jsp" />
+
 </body>
 </html>
