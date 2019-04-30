@@ -6,9 +6,13 @@
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="partials/navbar.jsp" />
-    <div class="container">
-        <h1>Please fill in your information.</h1>
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
+<div class="card text-white bg-info" style="margin: 0 auto; max-width: 60rem; border-radius: 1em;">
+    <div class="card-header text-center" style="padding: 1em;">
+        <h4>Register for Drive My Car!</h4>
+    </div>
+    <div class="card-body" style="padding: 0 10em 2em 10em;">
         <form action="/register" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
@@ -29,5 +33,8 @@
             <input type="submit" class="btn btn-primary btn-block">
         </form>
     </div>
+</div>
+
+<jsp:include page="/WEB-INF/partials/foot.jsp" />
 </body>
 </html>
