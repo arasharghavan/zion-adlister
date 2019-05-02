@@ -14,6 +14,8 @@
 </head>
 <body>
 <%--<jsp:include page="/WEB-INF/partials/navbar.jsp" />--%>
+
+<h1 class="text-danger">UNDER CONSTRUCTION !!!</h1>
 <div class="container">
     <h1>update ads</h1>
     <form action="/ads/updateadds" method="POST">
